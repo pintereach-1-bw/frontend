@@ -50,7 +50,7 @@ const Subtitle = styled.h2`
 
 
       const searchedArticles = articles.filter(article => {
-          return article.title.indexOf(search) !== -1            
+          return article.category.indexOf(search) !== -1            
        }          
        )
 
@@ -78,11 +78,15 @@ const Subtitle = styled.h2`
             />
             </div>
 
+            <div className="article-cards">
             {searchedArticles.map(article => {                
                     return(
-                        <Article article={article} searchValue={search} key={article.id} />
+                        
+                            <div className="article"><Article article={article} searchValue={search} key={article.id} /></div>
+                        
                     )                
             })}
+            </div>
             <button className="basic-button-2">Add An Article</button>
             <button className="basic-button-2">Filter By Category</button>
         </div>

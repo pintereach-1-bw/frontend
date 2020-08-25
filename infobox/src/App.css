@@ -1,6 +1,6 @@
 .App {
-  height: 100vh;
-  width: 100vh;
+  /* min-height: 100vh;
+  min-width: 100vh; */
   font-family: 'Roboto', sans-serif;
 
 }
@@ -117,4 +117,17 @@ video {
 .basic-button-2:hover {
   background-color: #ADA7C9;
       color: #4A2040;
+}
+
+.article-img {
+  width: 100%;
+}
+
+.article-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.article {
+  margin: 15px;
 }
