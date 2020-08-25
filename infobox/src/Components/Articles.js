@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import infobox from '../infobox.png'
-import {useHistory} from 'react-router-dom'
-import {axiosWithAuth} from '../Utils/axiosWithAuth' 
+import {useHistory, Link} from 'react-router-dom'
+// import {axiosWithAuth} from '../Utils/axiosWithAuth' 
 import {Article} from './Article'
+import {connect} from 'react-redux'
+import {getArticles} from '../Actions'
 
 
 
@@ -17,7 +19,7 @@ const Subtitle = styled.h2`
 
 
 
- export function Articles() {
+ const Articles = (props) => {
 
     const history = useHistory()
 
@@ -26,30 +28,35 @@ const Subtitle = styled.h2`
         history.push('/')
       }
 
+    useEffect(() => {
+        props.getArticles()
+        
+    }, [])
     
 
-      const [articles, setArticles] = useState([])
+    //   const [articles, setArticles] = useState([])
+
       const [search, setSearch] = useState('')
 
-      useEffect(() => {
-          axiosWithAuth()
-          .get('https://pintereach10.herokuapp.com/api/articles')
-          .then(res => {
-              console.log(res)
-              setArticles(res.data)       
-          })
-          .catch(err => {
-              console.log(err)
-          })
-      },[])
+    //   useEffect(() => {
+    //       axiosWithAuth()
+    //       .get('https://pintereach10.herokuapp.com/api/articles')
+    //       .then(res => {
+    //           console.log(res)
+    //           setArticles(res.data)       
+    //       })
+    //       .catch(err => {
+    //           console.log(err)
+    //       })
+    //   },[])
       
       const changeSearch = e => {
           
           setSearch(e.target.value)  
       }
 
-
-      const searchedArticles = articles.filter(article => {
+    //   console.log(props)
+      const searchedArticles = props.articles.filter(article => {
           return article.category.indexOf(search) !== -1            
        }          
        )
@@ -59,36 +66,57 @@ const Subtitle = styled.h2`
         <div>
             <div className="header-container">
                 <div className="header">
-                    <img className="header-logo" src={infobox} alt="infbox"></img>
+                    <Link to='/'><img className="header-logo" src={infobox} alt="infbox"></img></Link>
                     <div className="header-right">
-                        <div>Welcome user</div>
+                        <div className="welcome">Welcome {props.username}</div>
                         <button onClick={logout} className="basic-button">Logout</button>
                     </div>
                 </div>
             </div>
+            
+
+           
+
+            <div className="articles-body">
+
             <Subtitle>My Articles</Subtitle>
 
-            <div>
-            <input
-            type='text'
-            value={search}
-            name='search'
-            onChange={changeSearch}
-            placeholder='Filter By Category'
-            />
-            </div>
+                <div>
+                <input
+                type='text'
+                value={search}
+                name='search'
+                onChange={changeSearch}
+                placeholder='Filter By Category'
+                />
+                </div>
 
-            <div className="article-cards">
-            {searchedArticles.map(article => {                
-                    return(
-                        
-                            <div className="article"><Article article={article} searchValue={search} key={article.id} /></div>
-                        
-                    )                
-            })}
+                <div className="article-cards">
+
+                {props.error}
+                    
+                {searchedArticles.map(article => {                
+                        return(
+                            
+                                <Article article={article} searchValue={search} key={article.id} />
+                            
+                        )                
+                })}
+                </div>
+                <button className="basic-button-2"><Link className="add-article" to='/newarticle'>Add An Article</Link></button>
             </div>
-            <button className="basic-button-2">Add An Article</button>
-            <button className="basic-button-2">Filter By Category</button>
         </div>
     )
 }
+
+const mapStateToProps = state => {
+
+    return {
+       username: state.username,
+       articles: state.articles,
+       error: state.error
+    }
+  
+  }
+  
+  export default connect(mapStateToProps, {getArticles})(Articles)

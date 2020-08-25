@@ -1,15 +1,19 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
+// import axios from 'axios'
 import styled from 'styled-components'
+import { editArticle, deleteArticle, populateForm } from '../Actions'
 import {useHistory} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const ArticleCard = styled.div`
     width: 200px;
-    height: 300px;
+    height: auto;
     border-radius: 12px;
     text-align: center;
     background-color: #1F7A8C;
     color: white;
+    margin: 15px;
+    padding: 10px;
 `
 
 const Category = styled.div`
@@ -27,13 +31,22 @@ const Category = styled.div`
 
 export function Article(props) {
 
+   const history = useHistory()
+
     return (
         <ArticleCard>
-            <div><img className="article-img" src={props.article.image_url} alt="article image"></img></div>
+            <div><img className="article-img" src={props.article.image_url} alt="article pic"></img></div>
             <h3>{props.article.title}</h3>
-            <p>{props.article.article_url}</p>
+            <a className="read" href={props.article.article_url}>Read Article</a>
             <p>{props.article.summary}</p>
             <Category>{props.article.category}</Category>
+            <br></br>
+            <button onClick={() => {
+                props.populateForm(props.article)
+                history.push('/editarticle') } }>Edit</button>
+            <button onClick={() => props.deleteArticle(props.article.id) }>Delete</button>
         </ArticleCard>
     )
 }
+
+export default connect(null, {editArticle, deleteArticle, populateForm})(Article)

@@ -1,7 +1,12 @@
+body {
+  background-color: #011321;
+}
+
 .App {
-  /* min-height: 100vh;
-  min-width: 100vh; */
+  height: auto;
+  /* min-width: 100vh;  */
   font-family: 'Roboto', sans-serif;
+  background-color: #011321;
 
 }
 
@@ -10,7 +15,7 @@ video {
   right: 0;
   bottom: 0;
   width: 100%;
-  min-height: 100%;
+  height: auto;
 }
 
 /* .infobox-landing {
@@ -126,8 +131,37 @@ video {
 .article-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .article {
   margin: 15px;
+}
+
+.articles-body {
+  background-color: #011321;
+  text-align: center;
+  margin-top: 100px;
+  padding-top: 25px;
+}
+
+.article-form-body {
+  background-color: #011321;
+  text-align: center;
+  margin-top: 150px;
+  padding-top: 25px;
+  color: white;
+}
+
+.welcome {
+  color: white;
+}
+
+.add-article {
+  color: #063740;
+  text-decoration: none;
+}
+
+.read {
+  color: white;
 }

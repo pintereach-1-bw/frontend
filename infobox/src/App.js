@@ -7,7 +7,9 @@ import styled from 'styled-components'
 
 import {Signup} from './Components/Signup'
 import {Login} from './Components/Login'
-import {Articles} from './Components/Articles'
+import Articles from './Components/Articles'
+import ArticleForm from './Components/ArticleForm'
+import EditArticle from './Components/EditArticle';
 
 const InfoboxLanding = styled.div`
   position: fixed;
@@ -57,12 +59,13 @@ function App() {
   return (
     <div className="App">
     
-     <video autoPlay muted loop id="myVideo">
-      <source src={video} type="video/mp4" />
-      </video>
-
-      <InfoboxLanding>
+     
         <Route exact path='/'>
+          <video autoPlay muted loop id="myVideo">
+          <source src={video} type="video/mp4" />
+          </video>
+
+          <InfoboxLanding>
           <Link to='/'><img src={infobox} alt='infobox'></img></Link>
           <br></br>
           <Subtitle>Saving &#038; Organizing Important Web Articles For You</Subtitle>
@@ -72,6 +75,7 @@ function App() {
           <Button><Link className="link" to='/signup'>Sign Up</Link></Button>
           <Button><Link className="link" to='/login'>Login</Link></Button>
           </div>
+          </InfoboxLanding>
           </Route>
       
       <Route path='/signup'>
@@ -85,8 +89,16 @@ function App() {
       <Route path='/myarticles'>
         <Articles />
       </Route>
+
+      <Route path='/newarticle'>
+        <ArticleForm />
+      </Route>
+
+      <Route path='/editarticle'>
+        <EditArticle />
+      </Route>
       
-      </InfoboxLanding>
+      
 
       
     </div>
