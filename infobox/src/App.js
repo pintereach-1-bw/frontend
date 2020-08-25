@@ -85,8 +85,10 @@ function App() {
       <Route path='/myarticles'>
         <Articles />
       </Route>
-
+      
       </InfoboxLanding>
+
+      
     </div>
   );
 }
