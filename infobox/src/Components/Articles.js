@@ -55,7 +55,7 @@ const Subtitle = styled.h2`
           setSearch(e.target.value)  
       }
 
-    //   console.log(props)
+      console.log(props)
       const searchedArticles = props.articles.filter(article => {
           return article.category.indexOf(search) !== -1            
        }          
@@ -103,7 +103,7 @@ const Subtitle = styled.h2`
                         )                
                 })}
                 </div>
-                <button className="basic-button-2"><Link className="add-article" to='/newarticle'>Add An Article</Link></button>
+                <Link className="add-article" to='/newarticle'><button className="basic-button-2">Add An Article</button></Link>
             </div>
         </div>
     )

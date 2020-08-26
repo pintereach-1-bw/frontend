@@ -19,11 +19,14 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
 
         case GET_ARTICLES:
+            console.log(action.payload.articles)
             return {
                 ...state,
-                articles: action.payload.articles,
+                articles: (action.payload.articles || []),
                 username: action.payload.username
+                
             }
+            
         
         case CREATE_ARTICLE:
             console.log(action.payload)

@@ -28,6 +28,8 @@ const Category = styled.div`
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    word-break: break-all;
+    padding: 3px;
 `
 
 function Article(props) {
@@ -41,9 +43,9 @@ function Article(props) {
     return (
         <ArticleCard id={props.article.id}>
             <div><img className="article-img" src={props.article.image_url} alt="article pic"></img></div>
-            <h3>{props.article.title}</h3>
+            <h3 className="articleinfo">{props.article.title}</h3>
             <a className="read" href={props.article.article_url} target="_blank">Read Article</a>
-            <p>{props.article.summary}</p>
+            <p className="articleinfo">{props.article.summary}</p>
             <Category>{props.article.category}</Category>
             <br></br>
             <button onClick={() => {
@@ -53,6 +55,7 @@ function Article(props) {
             }>Edit</button>
             <button onClick={() => props.deleteArticle(props.article.id) }>Delete</button>
         </ArticleCard>
+
     )
 }
 

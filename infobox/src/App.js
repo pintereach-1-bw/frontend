@@ -37,7 +37,13 @@ const Button = styled.button`
   border-radius: 15px;
   border: 3px solid #1F7A8C;
   font-family: 'Quattrocento', serif; 
-  color: white;
+  color: #1F7A8C;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 
   &:hover {
       background-color: #ADA7C9;
@@ -71,9 +77,9 @@ function App() {
           <Subtitle>Saving &#038; Organizing Important Web Articles For You</Subtitle>
           
           <div className="links">
-          <Button><a href="marketingpage">What is Infobox?</a></Button>
-          <Button><Link className="link" to='/signup'>Sign Up</Link></Button>
-          <Button><Link className="link" to='/login'>Login</Link></Button>
+          <a href="marketingpage"><Button>What is Infobox?</Button></a>
+          <Link className="link" to='/signup'><Button>Sign Up</Button></Link>
+          <Link className="link" to='/login'><Button>Login</Button></Link>
           </div>
           </InfoboxLanding>
           </Route>

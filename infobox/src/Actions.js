@@ -14,7 +14,7 @@ export const getArticles = () => dispatch => {
     axiosWithAuth() 
         .get('https://pintereach10.herokuapp.com/api/articles')
         .then(res => {
-            // console.log(res)
+            console.log(res.data)
             dispatch({
                 type: GET_ARTICLES, payload: res.data})
         })

@@ -78,6 +78,7 @@ export function Signup() {
 
         <form onSubmit={signupandlogin}>
             <input
+                required 
                 id="username"
                 name="username"
                 type="text"
@@ -87,6 +88,7 @@ export function Signup() {
                 />
             <br></br>
             <input
+                required
                 id="password"
                 name="password"
                 type="password"
@@ -98,7 +100,7 @@ export function Signup() {
             <button type="submit">Sign Up!</button>
         </form>
         </InfoboxLanding>
-        
+
         </div>
     )
 }

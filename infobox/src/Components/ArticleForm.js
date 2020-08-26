@@ -124,7 +124,8 @@ function ArticleForm(props) {
                 <br></br><br></br>
                 <button type="submit">Submit</button>
 
-            </form>
+            </form><br></br>
+            <Link to='/myarticles'><button className="basic-button-2">Back to Articles</button></Link>
             </div>
         </div>
 

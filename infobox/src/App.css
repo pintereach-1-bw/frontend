@@ -58,6 +58,10 @@ video {
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 .smallinfobox {
   width: 400px;
 }
@@ -100,6 +104,7 @@ video {
   font-family: 'Quattrocento', serif;
   font-size: 1.3rem;
   color: #063740;
+  cursor: pointer;
 }
 
 .basic-button:hover {
@@ -117,6 +122,7 @@ video {
   font-size: 1.3rem;
   color: #063740;
   margin: 15px;
+  cursor: pointer;
 }
 
 .basic-button-2:hover {
@@ -164,4 +170,12 @@ video {
 
 .read {
   color: white;
+  text-decoration: underline;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.articleinfo {
+  width: 100%;
+  word-wrap: break-word;
 }

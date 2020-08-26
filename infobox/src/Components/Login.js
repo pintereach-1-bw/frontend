@@ -78,6 +78,7 @@ export function Login() {
 
         <form onSubmit={login}>
             <input
+                required
                 id="username"
                 name="username"
                 type="text"
@@ -87,6 +88,7 @@ export function Login() {
                 />
             <br></br>
             <input
+                required
                 id="password"
                 name="password"
                 type="password"
