@@ -3,7 +3,7 @@ import infobox from '../infobox.png'
 import styled from 'styled-components'
 import {useHistory, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {createArticle} from '../Actions'
+import {editArticle} from '../Actions'
 
 
 const Subtitle = styled.h2`
@@ -13,16 +13,10 @@ const Subtitle = styled.h2`
   color: #9CEAEF;
 `
 
-const initialNewArticle = {
-    title: '',
-    category: '',
-    article_url: '',
-    image_url: '',
-    summary: ''
-}
 
 
-function ArticleForm(props) {
+
+function EditArticle(props) {
 
     const history = useHistory()
 
@@ -144,4 +138,4 @@ const mapStateToProps = state => {
   }
 
   
-  export default connect(mapStateToProps, {createArticle})(ArticleForm)
+  export default connect(mapStateToProps, {editArticle})(EditArticle)

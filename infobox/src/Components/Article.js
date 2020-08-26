@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import axios from 'axios'
 import styled from 'styled-components'
-import { editArticle, deleteArticle, populateForm } from '../Actions'
+import { deleteArticle, populateForm } from '../Actions'
 import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -14,6 +14,7 @@ const ArticleCard = styled.div`
     color: white;
     margin: 15px;
     padding: 10px;
+    order: ${(props) => props.id};
 `
 
 const Category = styled.div`
@@ -29,12 +30,16 @@ const Category = styled.div`
     font-weight: bold;
 `
 
-export function Article(props) {
+function Article(props) {
+
+    useEffect(() => {
+        console.log(props)
+    }, [])
 
    const history = useHistory()
 
     return (
-        <ArticleCard>
+        <ArticleCard id={props.article.id}>
             <div><img className="article-img" src={props.article.image_url} alt="article pic"></img></div>
             <h3>{props.article.title}</h3>
             <a className="read" href={props.article.article_url}>Read Article</a>
@@ -43,10 +48,12 @@ export function Article(props) {
             <br></br>
             <button onClick={() => {
                 props.populateForm(props.article)
-                history.push('/editarticle') } }>Edit</button>
+                history.push('/editarticle') 
+            }
+            }>Edit</button>
             <button onClick={() => props.deleteArticle(props.article.id) }>Delete</button>
         </ArticleCard>
     )
 }
 
-export default connect(null, {editArticle, deleteArticle, populateForm})(Article)
+export default connect(null, {deleteArticle, populateForm})(Article)

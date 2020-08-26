@@ -1,4 +1,4 @@
-import {GET_ARTICLES, GET_ARTICLES_FAILURE, CREATE_ARTICLE, DELETE_ARTICLE, EDIT_ARTICLE} from "./Actions"
+import {GET_ARTICLES, GET_ARTICLES_FAILURE, CREATE_ARTICLE, DELETE_ARTICLE, EDIT_ARTICLE, POPULATE_FORM} from "./Actions"
 
 const initialState = {
     username: '',
@@ -34,16 +34,35 @@ export const reducer = (state = initialState, action) => {
 
         case DELETE_ARTICLE:
             console.log(action.payload)
+            console.log(state.articles.filter((article) =>  (article.id !== action.payload)))
+            console.log({
+                ...state,
+                articles: state.articles.filter((article) =>  (article.id !== action.payload))
+            })
+            
             return {
                 ...state,
-                articles: [...state.articles]
+                articles: state.articles.filter((article) =>  (article.id !== action.payload))
             }
 
         case EDIT_ARTICLE:
             console.log(action.payload)
             return {
                 ...state,
-                articles: [...state.articles, action.payload]
+                articles: state.articles.map((article) => {
+                    if (article.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return article
+                    }
+                })
+            }
+
+        case POPULATE_FORM:
+
+            return {
+                ...state,
+                article: action.payload
             }
 
         case GET_ARTICLES_FAILURE:

@@ -1,5 +1,5 @@
 import {axiosWithAuth} from './Utils/axiosWithAuth'
-import {useParams} from 'react-router-dom'
+// import {useParams} from 'react-router-dom'
 
 
 export const GET_ARTICLES = 'GET_ARTICLES';
@@ -26,12 +26,12 @@ export const getArticles = () => dispatch => {
         })
 }
 
-export const editArticle = (id, updatedArticle) => dispatch => {
+export const editArticle = (updatedArticle) => dispatch => {
 
     // const params = useParams()
 
     axiosWithAuth() 
-        .put(`https://pintereach10.herokuapp.com/api/articles/${id}`, updatedArticle)
+        .put(`https://pintereach10.herokuapp.com/api/articles/${updatedArticle.id}`, updatedArticle)
         .then(res => {
             console.log(res)
             dispatch({
@@ -49,9 +49,9 @@ export const deleteArticle = (id) => dispatch => {
     axiosWithAuth() 
         .delete(`https://pintereach10.herokuapp.com/api/articles/${id}`)
         .then(res => {
-            console.log(res)
+            console.log(res.data)
             dispatch({
-                type: DELETE_ARTICLE, payload: res.data})
+                type: DELETE_ARTICLE, payload: Number(res.data.id)})
         })
         .catch(err => {
             console.log(err)

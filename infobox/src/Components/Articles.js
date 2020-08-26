@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import infobox from '../infobox.png'
 import {useHistory, Link} from 'react-router-dom'
 // import {axiosWithAuth} from '../Utils/axiosWithAuth' 
-import {Article} from './Article'
+import Article from './Article'
 import {connect} from 'react-redux'
 import {getArticles} from '../Actions'
 
@@ -98,7 +98,7 @@ const Subtitle = styled.h2`
                 {searchedArticles.map(article => {                
                         return(
                             
-                                <Article article={article} searchValue={search} key={article.id} />
+                                <Article article={article} key={article.id} />
                             
                         )                
                 })}
