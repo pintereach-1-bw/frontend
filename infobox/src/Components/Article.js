@@ -42,7 +42,7 @@ function Article(props) {
         <ArticleCard id={props.article.id}>
             <div><img className="article-img" src={props.article.image_url} alt="article pic"></img></div>
             <h3>{props.article.title}</h3>
-            <a className="read" href={props.article.article_url}>Read Article</a>
+            <a className="read" href={props.article.article_url} target="_blank">Read Article</a>
             <p>{props.article.summary}</p>
             <Category>{props.article.category}</Category>
             <br></br>
