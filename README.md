@@ -13,10 +13,13 @@ First cd into infobox folder, which was created with create-react-app.  Then npm
 
 Libraries:
 
-react-router-dom
-axios
-styled-components for css styling
-regular css styling as well
+-react
+-react-router-dom
+-axios
+-styled-components for css styling
+-regular css styling as well
+-redux-thunk
+-react-redux
 
 
 ## Contributing
