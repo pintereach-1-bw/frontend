@@ -47,9 +47,9 @@ const Subtitle = styled.h2`
 
 const Button = styled.button`
   width: 180px;
-  height: 85px;
+  height: auto;
   margin: 15px;
-  padding: 20px;
+  padding: 15px;
   background-color: #9CEAEF;
   border-radius: 15px;
   border: 3px solid #1F7A8C;
@@ -79,7 +79,7 @@ const Button = styled.button`
 
   @media (max-width: 800px) {
     font-size: 1.2rem;
-    height: 50px;
+    height: auto;
   }
 `
 

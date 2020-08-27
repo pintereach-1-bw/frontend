@@ -21,7 +21,7 @@ const InfoboxLanding = styled.div`
   background: rgba(0, 0, 0, 0.7);
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
 `
 //------------------------------------------

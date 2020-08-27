@@ -228,4 +228,9 @@ a {
     width: 90%;
   }
 
+  .smallinfobox {
+    width: 95%;
+    margin: 0 auto;
+  }
+
 }
