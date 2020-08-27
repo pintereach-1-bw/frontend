@@ -68,7 +68,7 @@ function ArticleForm(props) {
                 <div className="header">
                     <Link to='/'><img className="header-logo" src={infobox} alt="infbox"></img></Link>
                     <div className="header-right">
-                        <div>Welcome {props.username}</div>
+                        <div className="welcome">Welcome {props.username}</div>
                         <button onClick={logout} className="basic-button">Logout</button>
                     </div>
                 </div>
