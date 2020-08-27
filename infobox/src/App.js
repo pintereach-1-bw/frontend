@@ -17,15 +17,32 @@ const InfoboxLanding = styled.div`
   background: rgba(0, 0, 0, 0.7);
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
+
+  @media (max-width: 1000px) {
+
+      top: 0;
+      padding-top: 30px;
+  
+}
+
 `
 
 const Subtitle = styled.h2`
   font-family: 'Quattrocento', serif;
   font-size: 2rem;
   margin-top: 10px;
+  margin-left: 0px;
   color: #9CEAEF;
+  
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    padding-bottom: 30px;
+    
+  }
 `
 
 const Button = styled.button`
@@ -59,6 +76,11 @@ const Button = styled.button`
       color: #4A2040;
     }
   }
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
+    height: 50px;
+  }
 `
 
 function App() {
@@ -72,7 +94,7 @@ function App() {
           </video>
 
           <InfoboxLanding>
-          <Link to='/'><img src={infobox} alt='infobox'></img></Link>
+          <Link to='/'><img className="biglogo" src={infobox} alt='infobox'></img></Link>
           <br></br>
           <Subtitle>Saving &#038; Organizing Important Web Articles For You</Subtitle>
           

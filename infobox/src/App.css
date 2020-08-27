@@ -67,10 +67,10 @@ a {
 }
 
 .header-container {
-  position: fixed;
-  top: 0px;
+  /* position: fixed;
+  top: 0px; */
   width: 100%;
-  height: 18%;
+  height: 120px;
   background-color: black;
   left: 0;
 }
@@ -147,14 +147,14 @@ a {
 .articles-body {
   background-color: #011321;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 20px;
   padding-top: 25px;
 }
 
 .article-form-body {
   background-color: #011321;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 20px;
   padding-top: 25px;
   color: white;
 }
@@ -178,4 +178,37 @@ a {
 .articleinfo {
   width: 100%;
   word-wrap: break-word;
+}
+
+@media (max-width: 1000px) {
+
+  video {
+    top: 0;
+    bottom: auto;
+  }
+
+  .header-logo {
+    width: 50%;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .biglogo {
+    width: 80%;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+  
+}
+
+@media (max-width: 500px) {
+
+  .header {
+    
+  }
+
 }

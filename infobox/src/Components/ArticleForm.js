@@ -122,7 +122,7 @@ function ArticleForm(props) {
                     onChange={handleChange}
                 />
                 <br></br><br></br>
-                <button type="submit">Submit</button>
+                <button disabled={props.posting} type="submit">Submit</button>
 
             </form><br></br>
             <Link to='/myarticles'><button className="basic-button-2">Back to Articles</button></Link>
@@ -133,5 +133,16 @@ function ArticleForm(props) {
 }
 
 
+const mapStateToProps = state => {
+
+    return {
+       username: state.username,
+       articles: state.articles,
+       error: state.error,
+       posting: state.posting
+    }
   
-  export default connect(null, {createArticle})(ArticleForm)
+  }
+
+  
+  export default connect(mapStateToProps, {createArticle})(ArticleForm)

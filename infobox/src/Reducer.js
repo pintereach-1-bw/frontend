@@ -1,4 +1,10 @@
-import {GET_ARTICLES, GET_ARTICLES_FAILURE, CREATE_ARTICLE, DELETE_ARTICLE, EDIT_ARTICLE, POPULATE_FORM} from "./Actions"
+import {GET_ARTICLES, 
+    GET_ARTICLES_FAILURE, 
+    CREATE_ARTICLE, 
+    DELETE_ARTICLE, 
+    EDIT_ARTICLE, 
+    POPULATE_FORM, 
+    POSTING} from "./Actions"
 
 const initialState = {
     username: '',
@@ -11,7 +17,8 @@ const initialState = {
         image_url: '',
         summary: ''
     },
-    error: ''
+    error: '',
+    posting: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -32,7 +39,14 @@ export const reducer = (state = initialState, action) => {
             console.log(action.payload)
             return {
                 ...state,
-                articles: [...state.articles, action.payload]
+                articles: [...state.articles, action.payload],
+                posting: false   
+            }
+        
+        case POSTING:
+            return {
+                ...state,
+                posting: true
             }
 
         case DELETE_ARTICLE:

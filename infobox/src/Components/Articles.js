@@ -114,7 +114,8 @@ const mapStateToProps = state => {
     return {
        username: state.username,
        articles: state.articles,
-       error: state.error
+       error: state.error,
+       posting: state.posting
     }
   
   }

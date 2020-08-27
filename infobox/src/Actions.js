@@ -8,6 +8,7 @@ export const DELETE_ARTICLE = 'DELETE_ARTICLE';
 export const CREATE_ARTICLE = 'CREATE_ARTICLE';
 export const GET_ARTICLES_FAILURE = 'GET_ARTICLES_FAILURE';
 export const POPULATE_FORM = 'POPULATE_FORM';
+export const POSTING = 'POSTING';
 
 export const getArticles = () => dispatch => {
 
@@ -61,6 +62,7 @@ export const deleteArticle = (id) => dispatch => {
 
 export const createArticle = (newArticle) => dispatch => {
     console.log(newArticle)
+    dispatch({ type: POSTING })
     axiosWithAuth() 
         .post('https://pintereach10.herokuapp.com/api/articles', newArticle)
         .then(res => {
