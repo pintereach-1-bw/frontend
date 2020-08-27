@@ -47,7 +47,7 @@ const Subtitle = styled.h2`
 
 const Button = styled.button`
   width: 180px;
-  height: auto;
+  height: 90px;
   margin: 15px;
   padding: 15px;
   background-color: #9CEAEF;
