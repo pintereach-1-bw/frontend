@@ -93,7 +93,8 @@ const Subtitle = styled.h2`
 
                 <div className="article-cards">
 
-                {props.error}
+                <p className="error">{props.error}</p><br></br>
+                <p className="error">{props.post_error}</p>
                     
                 {searchedArticles.map(article => {                
                         return(
@@ -115,7 +116,8 @@ const mapStateToProps = state => {
        username: state.username,
        articles: state.articles,
        error: state.error,
-       posting: state.posting
+       posting: state.posting,
+       post_error: state.post_error
     }
   
   }

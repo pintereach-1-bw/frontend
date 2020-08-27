@@ -124,7 +124,10 @@ function ArticleForm(props) {
                 <br></br><br></br>
                 <button disabled={props.posting} type="submit">Submit</button>
 
-            </form><br></br>
+            </form>
+            <br></br>
+            {props.error}
+            <br></br>
             <Link to='/myarticles'><button className="basic-button-2">Back to Articles</button></Link>
             </div>
         </div>
@@ -139,7 +142,8 @@ const mapStateToProps = state => {
        username: state.username,
        articles: state.articles,
        error: state.error,
-       posting: state.posting
+       posting: state.posting,
+       post_error: state.post_error
     }
   
   }

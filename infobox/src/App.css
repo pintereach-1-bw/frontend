@@ -180,6 +180,14 @@ a {
   word-wrap: break-word;
 }
 
+.error {
+  color: white;
+}
+
+
+/* ---media queries--------------------------------- */
+
+
 @media (max-width: 1000px) {
 
   video {

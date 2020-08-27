@@ -9,6 +9,7 @@ export const CREATE_ARTICLE = 'CREATE_ARTICLE';
 export const GET_ARTICLES_FAILURE = 'GET_ARTICLES_FAILURE';
 export const POPULATE_FORM = 'POPULATE_FORM';
 export const POSTING = 'POSTING';
+export const POST_FAILURE = 'POST_FAILURE';
 
 export const getArticles = () => dispatch => {
 
@@ -71,7 +72,10 @@ export const createArticle = (newArticle) => dispatch => {
                 type: CREATE_ARTICLE, payload: res.data})
         })
         .catch(err => {
-            console.log(err)
+            dispatch({
+                type: POST_FAILURE,
+                payload: 'Could not create article.'
+            })
         })
 }
 

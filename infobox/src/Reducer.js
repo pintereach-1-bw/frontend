@@ -4,7 +4,8 @@ import {GET_ARTICLES,
     DELETE_ARTICLE, 
     EDIT_ARTICLE, 
     POPULATE_FORM, 
-    POSTING} from "./Actions"
+    POSTING,
+    POST_FAILURE} from "./Actions"
 
 const initialState = {
     username: '',
@@ -18,6 +19,7 @@ const initialState = {
         summary: ''
     },
     error: '',
+    post_error: '',
     posting: false
 }
 
@@ -40,7 +42,8 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 articles: [...state.articles, action.payload],
-                posting: false   
+                posting: false,
+                post_error: ''   
             }
         
         case POSTING:
@@ -48,6 +51,14 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 posting: true
             }
+        
+        case POST_FAILURE:
+            return {
+                ...state,
+                post_error: action.payload,
+                posting: false
+            }
+
 
         case DELETE_ARTICLE:
             console.log(action.payload)
